@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Android Log Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Android Log Analyzer</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="log_file">Upload Android Log File:</label>
+            <input type="file" name="log_file" id="log_file" required>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if analysis %}
+        <div class="analysis">
+            <h2>Analysis Result:</h2>
+            <pre class="code-font">{{ analysis }}</pre>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
